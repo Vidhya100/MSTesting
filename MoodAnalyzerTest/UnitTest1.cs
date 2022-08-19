@@ -10,11 +10,12 @@ namespace MoodAnalyzerTest
         public void AnalyseMood()
         {
             //Arrange
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
+            
             string meassage = "I am in Sad Mood";
+            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(meassage);
             string ExpectedOutput = "SAD";
 
-            string result = moodAnalyzer.AnalyseMood(meassage);
+            string result = moodAnalyzer.AnalyseMood();
 
             Assert.AreEqual(result, ExpectedOutput);
 
