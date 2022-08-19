@@ -8,18 +8,32 @@ namespace Moodanalyzer
 {
     public class MoodAnalyzer
     {
-        public string message = "I am in Sad Mood";
-        public string AnalyseMood(string msg)
+        private const string message = "I am in Sad Mood";
+        private string testmessage= "";
+        //public string Message
+        //{ 
+        //    get { return message; } 
+        //    set { message = value; }
+        //}
+        public MoodAnalyzer()
         {
-            if (this.message == msg)
+            
+        }
+        public MoodAnalyzer(string msg)
+        {
+            this.testmessage = msg;
+        }
+
+        public string AnalyseMood()
+        {
+            if (this.testmessage == message) 
             {
                 return "SAD";
             }
-            else 
+            else
             {
                 return "Happy";
             }
-            
         }
     }
 }
