@@ -11,9 +11,9 @@ namespace MoodAnalyzerTest
         {
             //Arrange
             
-            string meassage = "I am in Sad Mood";
+            string meassage = " ";
             MoodAnalyzer moodAnalyzer = new MoodAnalyzer(meassage);
-            string ExpectedOutput = "SAD";
+            string ExpectedOutput = "Happy";
 
             string result = moodAnalyzer.AnalyseMood();
 

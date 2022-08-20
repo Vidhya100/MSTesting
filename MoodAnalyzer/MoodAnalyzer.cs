@@ -26,14 +26,35 @@ namespace Moodanalyzer
 
         public string AnalyseMood()
         {
-            if (this.testmessage == message) 
-            {
-                return "SAD";
+
+            try
+
+            { 
+                if (this.testmessage == "NULL" || this.testmessage == string.Empty)
+                {
+                  throw new Exception("Mood is Null"); 
+                }
+
+                if (this.testmessage == message)
+                {
+                    return "SAD";
+                }
+                else if (this.testmessage == "I am in Happy Mood")
+                {
+                    return "Happy";
+                }
+                else 
+                {
+                    throw new Exception("Mood is Null");
+                }
             }
-            else
+            catch (Exception e)
             {
+               Console.WriteLine(e.Message);
                 return "Happy";
             }
+
+
         }
     }
 }
