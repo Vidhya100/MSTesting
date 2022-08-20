@@ -11,7 +11,7 @@ namespace MoodAnalyzerTest
         {
             //Arrange
             
-            string meassage = " ";
+            string meassage = "\0";
             MoodAnalyzer moodAnalyzer = new MoodAnalyzer(meassage);
             string ExpectedOutput = "Happy";
 
