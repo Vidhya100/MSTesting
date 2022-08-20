@@ -30,12 +30,16 @@ namespace Moodanalyzer
             try
 
             { 
-                if (this.testmessage == "NULL" || this.testmessage == string.Empty)
+                if (this.testmessage == "NULL" )
                 {
-                  throw new Exception("Mood is Null"); 
+                    throw new InvalidMoodException( InvalidMoodException.ExceptionType.ENTERD_NULL, "Input is \"NULL\"");
+                }
+                else if ( this.testmessage == string.Empty)
+                {
+                    throw new InvalidMoodException(InvalidMoodException.ExceptionType.ENTERED_EMPTY, "Message is emptry");
                 }
 
-                if (this.testmessage == message)
+                else if (this.testmessage == message)
                 {
                     return "SAD";
                 }
@@ -48,9 +52,19 @@ namespace Moodanalyzer
                     throw new Exception("Mood is Null");
                 }
             }
+            catch (InvalidMoodException e)
+            {
+               if (e.type == InvalidMoodException.ExceptionType.ENTERD_NULL)
+                    Console.WriteLine("catched null exception type and message is " + e.Message);
+               else if (e.type == InvalidMoodException.ExceptionType.ENTERED_EMPTY)
+                    Console.WriteLine("catched empty exception type and message is " + e.Message);
+
+               
+                return "Happy";
+            }
             catch (Exception e)
             {
-               Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);
                 return "Happy";
             }
 
