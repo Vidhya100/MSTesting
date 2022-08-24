@@ -21,10 +21,17 @@ namespace MoodAnalyzerTest
 
         }
         [TestMethod]
-        public void Found_Class_Or_MethodName()
+        public void Found_Class_Or_MethodName_With_Default_Constructor()
         {
             object expected = new MoodAnalyzer();
             object obj = MoodAnalyzerFactory.CreateMoodAnalyse("Moodanalyzer.MoodAnalyzer", "MoodAnalyzer");
+            expected.Equals(obj);
+        }
+        [TestMethod]
+        public void Found_Class_Or_MethodName_With_Parameterizd_Constructor()
+        {
+            object expected = new MoodAnalyzer("Happy");
+            object obj = MoodAnalyserFactory1.Refelection_Using_Parameterized_Constructor("Moodanalyzer.MoodAnalyzer", "MoodAnalyzer", "Happy");
             expected.Equals(obj);
         }
     }
