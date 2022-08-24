@@ -20,5 +20,12 @@ namespace MoodAnalyzerTest
             Assert.AreEqual(result, ExpectedOutput);
 
         }
+        [TestMethod]
+        public void Found_Class_Or_MethodName()
+        {
+            object expected = new MoodAnalyzer();
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyse("Moodanalyzer.MoodAnalyzer", "MoodAnalyzer");
+            expected.Equals(obj);
+        }
     }
 }
